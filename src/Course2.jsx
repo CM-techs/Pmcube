@@ -1,8 +1,8 @@
 function Courses2 (){
     return<>
-    <div className="offimg">
+    
      <img className="off-img" alt="OfferBanner" src="./offerimg.png"/>
-    </div>
+    
     <div className="diss-img-box">
         <img className="diss-img" alt="discussion" src="https://www.shutterstock.com/image-vector/client-meeting-review-business-agreement-600nw-2673505783.jpg"/>
     </div>

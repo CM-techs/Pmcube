@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -48,6 +49,12 @@ function Admin({ setIsAdmin }) {
 
   return (
     <div className="login-container">
+      <div className="login-side-image">
+        <img 
+          src="https://static.vecteezy.com/system/resources/previews/006/912/004/non_2x/secure-login-and-sign-up-concept-illustration-vector.jpg" 
+          alt="Admin Login Illustration" 
+        />
+      </div>
 
       <div className="login-card">
         <h2>Admin Login</h2>
@@ -79,8 +86,12 @@ function Admin({ setIsAdmin }) {
           <button type="submit" className="login-button">
             Login
           </button>
+          
 
         </form>
+        <Link to="/" className="back-to-home">
+            Back to Home
+          </Link>
       </div>
 
     </div>

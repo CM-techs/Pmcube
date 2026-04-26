@@ -5,7 +5,7 @@
     min-height: calc(100vh - 70px) !important;
     width: 100% !important;
     padding: 2rem !important;
-    background: #ffffff !important;
+   
     margin: 0 !important;
     gap: 4rem;
 }
@@ -25,6 +25,7 @@
     max-height: 400px;
     object-fit: contain;
 }
+
 
 .login-card {
     background: #ffffff;
@@ -55,13 +56,27 @@
     to { opacity: 1; }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
     .login-side-image {
         display: none !important;
     }
     
     .login-container {
-        padding: 1.5rem !important;
+        padding: 1rem !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .login-card {
+        padding: 2rem;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .login-card h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -141,3 +156,14 @@
 .form-footer a:hover {
     color: #646cff;
 }
+.back-to-home{
+    position: relative;
+    color: #646cff;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    transition: color 0.2s;
+    margin-top: 100px;
+    top: 20px;
+    margin-left: 25px;
+}   

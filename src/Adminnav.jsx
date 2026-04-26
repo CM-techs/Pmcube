@@ -30,59 +30,34 @@ function Adminnav({ setIsAdmin }) {
 
           {/* Left side links */}
           <ul className="navbar-nav">
-
             <li className="nav-item">
               <NavLink className="nav-link" to="/adhome">Home</NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link " to="/"></NavLink>
-            </li>
-
-            <li className="nav-item dropdown">
-
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-              >
-                
-              </a>
-
-              <ul className="dropdown-menu">
-                <li><NavLink className="dropdown-item" to=""> </NavLink></li>
-                <li><NavLink className="dropdown-item" to="/"> </NavLink></li>
-                <li><NavLink className="dropdown-item" to="/"></NavLink></li>
-              </ul>
-
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/"></NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/"> </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/studentdata">Students Data</NavLink>
             </li>
-
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/coursesdata">Courses Data</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/trainerdata">Trainer Data</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/joinees">Joinees</NavLink>
+            </li>
           </ul>
 
           {/* Right side Join / Logout button */}
           <ul className="navbar-nav ms-auto">
-
             <li className="nav-item">
               <button
                 className="nav-link join-btn border-0 outline-none"
                 onClick={handleLogout}
-                style={{ cursor: "pointer", background: "none" }}
+                style={{ cursor: "pointer" }}
               >
                 Logout
               </button>
             </li>
-
           </ul>
 
         </div>

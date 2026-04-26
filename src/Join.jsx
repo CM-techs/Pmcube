@@ -9,6 +9,7 @@ function Join() {
   const [phone, setPhone] = useState("")
  const [submit,setSubmit]=useState(false)
  const [standard,setStandard]=useState("")
+ const [subject,setSubject]=useState("")  
   const reg = async (e) => {
    
 setSubmit(true)
@@ -16,7 +17,8 @@ setSubmit(true)
       await axios.post("http://localhost:3000/register", {
         name,
         standard,
-          school,
+        subject,
+        school,
         whatsapp,
         phone
       });
@@ -68,6 +70,14 @@ setSubmit(true)
             <option value={"12th-State Board"}>12th-State Board</option>
             <option value={"12th-CBSE"}>12th-CBSE</option>
             <option value={"12th-ICSE"}>12th-ICSE</option>
+          </select>
+        </div>
+        <div className="mb-3">
+          <select className="form-control" value={subject} onChange={(e)=>setSubject(e.target.value)}>
+            <option selected>Select your subject</option>
+            <option value={"Maths"}>Maths</option>
+            <option value={" Computer Science"}>Computer Science</option>
+            
           </select>
         </div>
 

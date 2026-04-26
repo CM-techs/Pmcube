@@ -31,9 +31,9 @@ function Courses1() {
 
               <div className="card-body">
                 <p><strong>Sub :</strong> {item.subject}</p>
-                <p><strong>Class :</strong> {item.class}</p>
+                <p><strong>Class :</strong> {item.std}</p>
                 <p><strong>Board :</strong> {item.Board}</p>
-                <p><strong>Time :</strong> --</p>
+                <p><strong>Time :</strong>Flexible time</p>
               </div>
 
             </div>

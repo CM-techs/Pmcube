@@ -18,6 +18,10 @@ import Adhome from './Adhome'
 import Usernav from './Usernav'
 import Adminnav from './Adminnav'
 import Studentdata from './Studentdata'
+import Coursesdata from './Coursesdata'
+import Trainerdata from './Trainerdata'
+import Joinees from './Joinees'
+import Swal from 'sweetalert2'
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(localStorage.getItem("isAdmin") === "true");
@@ -38,6 +42,9 @@ function App() {
         <Route path='admin' element={<Admin setIsAdmin={setIsAdmin} />} />
         <Route path='/adhome' element={<Adhome />} />
         <Route path='/studentdata' element={<Studentdata />} />
+        <Route path='/coursesdata' element={<Coursesdata />} />
+        <Route path='/trainerdata' element={<Trainerdata />} />
+        <Route path='/joinees' element={<Joinees />} />
       </Routes>
       {/* <div>
         <a href="https://vite.dev" target="_blank">

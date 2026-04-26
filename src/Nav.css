@@ -1,14 +1,18 @@
-/* Page background */
-/* Page background */
-body {
+* {
+  box-sizing: border-box;
+}
+html, body {
   margin: 0;
+  padding: 0;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
   font-family: 'Inter', "Poppins", sans-serif;
   background-color: var(--white);
   color: var(--text-dark);
 }
 
-/* Navbar top la stick aagum */
+/* Navbar fixed top */
 .custom-navbar{
   position: fixed;
   top: 0;
@@ -17,12 +21,6 @@ body {
   z-index: 1000;
 }
 
-/* Content navbar keezha start aaganum */
-#root{
-  padding-top: 70px;
-}
-
-/* root full width */
 #root{
   width:100%;
   margin:0;
@@ -158,42 +156,44 @@ body{
   bottom:40px;
   left:50%;
   transform:translateX(-50%);
-display: flex; 
-justify-content: center;
-align-items: flex-start;
-padding: 20px 0px;
-gap: 100px;
-flex-wrap: nowrap;
-   
+  display: flex; 
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0px;
+  gap: 3vw;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 .card-container2{
   position:absolute;
-  bottom:510px;
-  left:55%;
-  transform:translateX(-50%);
-display: flex; 
-justify-content: center;
-
-   
+  top: 45%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  text-align: center;
 }
 .glass-card2{
   width:auto;
-  padding: 30px;
+  padding: 20px;
   height: auto;
-  margin-top: 100px;
   background: transparent;
   color: var(--text-dark);       
   line-height: 1.2;    
   white-space: normal;  
   word-wrap: break-word;
-  font-size: 60px !important;
+  font-size: clamp(32px, 5vw, 60px) !important;
   font-weight: 800;
+  text-align: center;
 }
 
 /* glass box */
 .glass-card{
-  width: 250px;
-  padding: 24px;
+  width: clamp(150px, 18vw, 250px);
+  padding: 1.5vw;
   height: auto;
   background: var(--white);
   border-radius: 12px;
@@ -210,18 +210,16 @@ justify-content: center;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 .demo{
-  position: relative;
-  top: 300px;
-  right: 50%;
   height: 60px;
   width: 180px;
   background-color: var(--primary-green);
   border-radius: 10px;
-  padding: 0px 30px 20px;
+  padding: 0px 30px;
   display: flex;
-  justify-content: justify;
+  justify-content: center;
   align-items: center;
   transition: background-color 0.3s;
+  margin-top: 20px;
 }
 
 .demo:hover {
@@ -229,132 +227,134 @@ justify-content: center;
   color: white;
 }
 .dbtt{
-  position: relative;
   color: white !important;
-  top: 10px;
   text-decoration: none;
-
-  
 }
 .dbtt Link:hover{
   color: white !important;
 }
-.a-img-box{
-  height: 400px;
-  width: 700px;
+
+/* About Section */
+.about-page {
   display: flex;
-  object-fit: cover;
-  justify-content: flex-end; /* pushes image to right */
-  margin-top: -120px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 80px 5%;
+  min-height: 80vh;
+  width: 100%;
 }
 
-.ab-img{
-  width: 100%;   /* fill container */
-  height: 100%;
-  object-fit: cover;
-}
-.a-tex-box{
- 
-  width: 500px;
-  max-width: 90%;
-  padding: 20px;
+.a-img-box {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
   height: auto;
-position: absolute;
-bottom: 170px;
-left: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-  white-space: normal;
-}
-.a-tex-box2{
-    width: 500px;
-  max-width: 90%;
-  padding: 20px;
+.ab-img {
+  width: 100%;
   height: auto;
-  margin-bottom:-120px ;
-  position:relative ;
-  top: 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
 }
-.a-tag-tex{
-  position: relative;
-  top: 100px;
-  margin-bottom:-120px ;
-   color: rgb(100, 224, 100);
+
+.a-content-wrapper {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
+
+.a-tex-box, .a-tex-box2 {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.a-tag-tex {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+/* Course2 Section */
 .offimg{
   position: relative;
-  margin-top: 80px;
+  
   background-color: var(--primary-green);
   height: auto;
   width: auto;
 }
 .off-img{
+  position: relative;
+  bottom: 180px;
   width: 100%;
   height: 240px;
 }
 .diss-img-box{
-  position: relative;
-  max-height: fit-content;
-  max-width: fit-content;
-  margin-top: 20px;
-  margin-left:900px;
-  margin-bottom: 10px;
-  overflow:-moz-hidden-unscrollable;
-  
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  width: 45%;
+  height: auto;
+  overflow: hidden;
 }
 .diss-img{
   height: 500px;
-  width: 600px;
-  overflow: hidden;
-  margin-right: 10px;
-
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 .diss-tex-box{
-  position: relative;
-  
-  height: 500px;
-  width: 600px;
- overflow:-moz-hidden-unscrollable;
- margin-top:-500px;
- margin-bottom: 10px;
-  opacity: 95%;
-left: 20px;
-   white-space:nowrap;
-
+  position: absolute;
+  top: 60%;
+  left: 5%;
+  height: auto;
+  min-height: auto;
+  width: 40%;
   background: var(--white);
   border-radius:15px;
   border:1px solid #e2e8f0;
-
   text-align:justify;
- 
   font-family: 'Inter', sans-serif;
   box-shadow: var(--shadow);
-  transition:0.2s;
-  justify-content: center;
-  
-  padding-top: 60px;
-  
-  font-size: 30px;
+  padding: 40px;
+  font-size: 24px;
   color: var(--text-dark);
 }
 .cho-tex{
-  line-height: 80px;
+  line-height: 1.6;
   color: black;
-  position: relative;
-  top: 20px;
-  left: 10px;
+  margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 10px;
 }
 .cho-hed{
-  position: relative;
-  left: 100px;
   color: black;
+  font-weight: 700;
 }
+
+/* Contact Section */
 .contact-main-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 80px;
-  margin: 100px auto;
+  margin: 80px auto;
   max-width: 1100px;
   padding: 0 20px;
 }
@@ -369,7 +369,6 @@ left: 20px;
   align-items: center;
   gap: 20px;
   background-color: var(--primary-green);
-  opacity: 1;
   min-height: 450px;
   width: 450px;
   border-radius: 20px;
@@ -425,734 +424,243 @@ left: 20px;
   max-width: 100%;
   height: auto;
 }
-@media (max-width: 992px) {
-  .contact-main-container {
-    flex-direction: column;
-    gap: 40px;
-    margin: 50px auto;
-  }
-  .contact-text-box {
-    text-align: center;
-  }
-  .con-head {
-    text-align: center;
-    font-size: 36px;
-  }
-  .con-box2 {
-    text-align: center;
-    margin: 20px auto;
-  }
-}
 
+/* Course Cards */
 .card {
   background: var(--white);
-  border-radius:  15px;
+  border-radius: 15px;
   border: 1px solid #e2e8f0;
   box-shadow: var(--shadow);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #e6fff2;
+  color: #004d26;
 }
-
-/* hover effect */
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  background-color: #31b71c;
+  color: white;
 }
-
-/* image style */
 .card-img-top {
   height: 400px;
-  object-fit: cover;
+  object-fit: contain;
 }
-
-/* space between image and text */
 .card-body {
-  padding-top: 20px;
+  padding: 20px;
   text-align: center;
 }
-
-/* title style */
 .card-title {
   font-weight: 600;
   margin-bottom: 10px;
 }
-
-/* text style */
 .card-text {
-  color: var(--text-grey);
+  color: inherit;
 }
+
+/* Join Section (Desktop Swapped) */
 .main-container{
-  height:100vh;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  margin-right: 40px;
- 
+  min-height:100vh;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
 }
 .glass-box{
-  width:500px;
-  max-width:90%;
-  padding:40px;
-  border-radius:15px;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  width: 500px;
+  max-width: 90%;
+  padding: 40px;
+  border-radius: 15px;
   background: var(--white);
-  border:1px solid #e2e8f0;
+  border: 1px solid #e2e8f0;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  z-index: 2;
 }
 .form-control{
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
   padding: 12px;
 }
-
 .form-control:focus{
   box-shadow: 0 0 0 3px rgba(0, 202, 82, 0.2);
   border-color: var(--primary-green);
   background: var(--white);
 }
-
-/* Discount card bottom right */
 .discount-card{
   position:absolute;
-  left:20px;
-  bottom:90px;
-  width:750px;
+  right: 10%;
+  bottom: 20%;
+  width: 35%;
+  min-width: 300px;
   padding:30px;
   border-radius:12px;
   color: var(--white);
   background: var(--primary-green);
   box-shadow: var(--shadow);
-}
-
-.discount-card h5{
-  margin-bottom:10px;
+  z-index: 1;
 }
 .text-section{
   color: var(--text-dark);
-  padding:50px;
-  position: relative;
-  right: 220px;
-  bottom: 100px;
+  padding: 20px;
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 40%;
 }
-
 .text-section h1{
-  font-size:48px;
-  margin-bottom:90px;
+  font-size:clamp(32px, 4vw, 48px);
+  margin-bottom:20px;
 }
-
 .text-section p{
   font-size:18px;
   line-height:1.6;
 }
 
 /* ==============================================
-   RESPONSIVE MEDIA QUERIES
-   Desktop CSS above is UNTOUCHED.
-   Only overrides below for smaller screens.
+   CONSOLIDATED RESPONSIVE MEDIA QUERIES
    ============================================== */
 
 /* ---------- Large screens (≤1200px) ---------- */
 @media (max-width: 1200px) {
-
-  /* Navbar */
-  .navbar-nav {
-    margin-left: 10%;
-    gap: 40px;
-  }
-  .join-btn {
-    margin-right: 100px;
-  }
-
-  /* Hero cards */
-  .card-container {
-    gap: 40px;
-  }
-  .card-container2 {
-    left: 50%;
-  }
-
-  /* About */
-  .a-tex-box {
-    left: 700px;
-  }
-
-  /* Course2 */
-  .diss-img-box {
-    margin-left: 500px;
-  }
-  .diss-tex-box {
-    margin-left: auto;
-  }
-
-  /* Contact */
-  .con-box {
-    width: 450px;
-  }
-
-  /* Join */
-  .text-section {
-    right: 100px;
-  }
-  .discount-card {
-    width: 600px;
-  }
+  .navbar-nav { gap: 40px; }
+  .join-btn { margin-right: 50px; }
+  .glass-box { left: 5%; width: 450px; }
+  .text-section { right: 5%; width: 45%; }
+  .discount-card { right: 5%; width: 40%; }
 }
 
 /* ---------- Tablets (≤992px) ---------- */
 @media (max-width: 992px) {
-
-  /* Navbar */
-  .navbar {
-    padding: 12px 20px;
-  }
-  .navbar-nav {
-    margin-left: 5%;
-    gap: 25px;
-  }
-  .join-btn {
-    margin-right: 20px;
-  }
-
-  /* Carousel */
-  .my-carousel {
-    width: 90%;
-  }
-  #carouselExampleAutoplaying,
-  #carouselExampleAutoplaying img {
-    max-height: 350px;
-    height: 350px;
-  }
-
-  /* Hero */
-  .card-container {
-    gap: 25px;
-    padding: 15px 0;
-  }
-  .card-container2 {
-    bottom: 450px;
-    left: 50%;
-  }
-  .glass-card {
-    padding: 12px;
-    height: 70px;
-  }
-  .demo {
-    top: 250px;
-    right: 40%;
-  }
-
-  /* About */
-  .a-img-box {
-    width: 500px;
-    height: 300px;
-  }
-  .a-tex-box {
-    left: 500px;
-    width: 400px;
-    bottom: 120px;
-  }
-  .a-tex-box2 {
-    width: 400px;
-  }
-
-  /* Course2 */
-  .diss-img-box {
-    margin-left: 350px;
-  }
-  .diss-img {
-    width: 500px;
-    height: 400px;
-  }
-  .diss-tex-box {
-    width: 500px;
-    height: 400px;
-    margin-top: -400px;
-    font-size: 22px;
-  }
-  .cho-tex {
-    line-height: 50px;
-  }
-  .cho-hed {
-    left: 60px;
-  }
-
-  /* Contact */
-  .con-box {
-    width: 400px;
-    padding: 30px;
-  }
-  .con-box2 {
-    width: 90%;
-  }
-
-  /* Join */
-  .main-container {
-    margin-right: 20px;
-  }
-  .glass-box {
-    width: 400px;
-    padding: 30px;
-  }
-  .text-section {
-    right: 50px;
-    bottom: 60px;
-    padding: 30px;
-  }
-  .text-section h1 {
-    font-size: 36px;
-    margin-bottom: 50px;
-  }
-  .discount-card {
-    width: 450px;
-  }
-
-  /* Course cards */
-  .card-img-top {
-    height: 280px;
-  }
+  .navbar { padding: 12px 20px; }
+  .navbar-nav { gap: 20px; }
+  .my-carousel { width: 90%; }
+  #carouselExampleAutoplaying, #carouselExampleAutoplaying img { max-height: 350px; height: 350px; }
+  
+  .card-container2 { top: 40%; }
+  .glass-box { position: absolute; left: 50%; transform: translate(-50%, -50%); top: 50%; width: 400px; z-index: 10; }
+  .text-section { position: relative; right: 0; width: 100%; text-align: center; top: 5%; }
+  .discount-card { position: relative; right: 0; width: 100%; bottom: 5%; margin-top: 20px; text-align: center; }
+  
+  .about-page { flex-direction: column; padding: 40px 5%; }
+  .diss-img-box, .diss-tex-box { position: static; width: 90%; margin: 20px auto; }
+  .contact-main-container { flex-direction: column; gap: 40px; }
+  .con-box { width: 100%; max-width: 450px; }
 }
 
 /* ---------- Mobile / Small tablets (≤768px) ---------- */
 @media (max-width: 768px) {
-
-  /* Root */
-  #root {
-    padding-top: 60px;
-    overflow-x: hidden;
-  }
-
-  /* Navbar — stacks vertically with Bootstrap toggler */
-  .navbar {
-    padding: 10px 15px;
-    flex-wrap: wrap;
-  }
-  .navbar-brand {
-    font-size: 18px;
-    margin-right: 10px;
-  }
-  .navbar-nav {
-    flex-direction: column;
-    margin-left: 0;
-    gap: 8px;
-    width: 100%;
-    padding: 10px 0;
-  }
-  .join-btn {
-    margin-right: 0;
-  }
-
-  /* Carousel */
-  .carousel-wrapper {
-    margin-top: 20px;
-  }
-  .my-carousel {
-    width: 95%;
-  }
-  #carouselExampleAutoplaying,
-  #carouselExampleAutoplaying img {
-    max-height: 220px;
-    height: 220px;
-  }
-
-  /* Hero section — switch to flow layout */
-  .hero-section {
-    height: auto;
-    min-height: auto;
-    overflow: visible;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 20px;
-  }
-  .hero-img {
-    width: 100%;
-    height: 45vh;
-    object-fit: cover;
-  }
-
-  /* Card container2 — tagline + demo button */
-  .card-container2 {
-    position: static;
-    transform: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    margin-top: -60px;
-    z-index: 2;
-    gap: 10px;
-  }
-  .glass-card2 {
-    width: 90%;
-    height: auto;
-    min-height: 100px;
-    font-size: 22px !important;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .demo {
-    position: static;
-    margin: 15px auto;
-  }
-  .dbtt {
-    top: 10px;
-  }
-
-  /* Card container — 3 glass cards */
-  .card-container {
-    position: static;
-    transform: none;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    gap: 10px;
-    padding: 15px 0;
+  #root { padding-top: 60px; }
+  .navbar { flex-wrap: wrap; }
+  .navbar-nav { flex-direction: column; width: 100%; padding: 10px 0; gap: 10px; }
   
-  }
-  .glass-card {
-    width: 85%;
-    height: auto;
-    min-height: 60px;
-    white-space: normal;
-    text-align: center;
-    padding: 14px;
-  }
+  .hero-section { height: auto; padding-bottom: 30px; }
+  .hero-img { height: 40vh; }
+  .card-container2 { position: static; transform: none; width: 100%; margin-top: 20px; }
+  .glass-card2 { font-size: 24px !important; }
+  
+  .card-container { position: static; transform: none; flex-direction: column; align-items: center; gap: 15px; }
+  .glass-card { width: 90%; }
 
-  /* About page */
-  .a-img-box {
-    width: 95%;
-    height: auto;
-    min-height: 200px;
-    margin: 20px auto 0;
-    justify-content: center;
-  }
-  .a-tex-box {
-    position: static;
-    width: 90%;
-    max-width: 100%;
-    margin: 20px auto;
-    text-align: center;
-  }
-  .a-tex-box2 {
-    width: 90%;
-    max-width: 100%;
-    margin: 10px auto;
-    position: static;
-    top: auto;
-    margin-bottom: 0;
-  }
-  .a-tag-tex {
-    position: static;
-    top: auto;
-    text-align: center;
-    margin: 20px 0;
-    margin-bottom: 0;
-  }
-
-  /* Course2 — offer banner */
-  .offimg {
-    margin-top: 30px;
-  }
-  .off-img {
-    height: auto;
-    max-height: 180px;
-    object-fit: cover;
-  }
-
-  /* Course2 — discussion */
-  .diss-img-box {
-    margin-left: 0;
-    width: 95%;
-    max-width: 100%;
-    margin: 20px auto;
-  }
-  .diss-img {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: cover;
-  }
-  .diss-tex-box {
-    width: 95%;
-    height: auto;
-    min-height: 250px;
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    white-space: normal;
-    font-size: 18px;
-    padding: 20px;
-    padding-top: 30px;
-  }
-  .cho-tex {
-    line-height: 2;
-    left: 0;
-    top: 0;
-  }
-  .cho-hed {
-    left: 0;
-    text-align: center;
-  }
-
-  /* Contact */
-  .con-box {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-    min-height: 350px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-  .con-name {
-    position: static;
-    width: 100%;
-    max-width: 280px;
-  }
-  .con-email {
-    position: static;
-    width: 100%;
-    max-width: 280px;
-  }
-  .con-msg {
-    position: static;
-    width: 100%;
-    max-width: 280px;
-    height: 150px;
-  }
-  .con-head {
-    position: static;
-    text-align: center;
-    margin: 20px 0 10px;
-  }
-  .con-sub1,
-  .con-sub2 {
-    position: static;
-    text-align: center;
-  }
-  .con-box2 {
-    position: static;
-    width: 90%;
-    height: auto;
-    margin: 10px auto;
-    text-align: center;
-  }
-  .con-img-box {
-    position: static;
-    width: 90%;
-    max-width: 350px;
-    height: auto;
-    margin: 20px auto;
-  }
-  .con-img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Course cards */
-  .card-img-top {
-    height: 220px;
-  }
-
-  /* Join page */
-  .main-container {
-    height: auto;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-right: 0;
-    padding: 20px;
-    gap: 20px;
-  }
-  .text-section {
-    position: static;
-    text-align: center;
-    padding: 20px;
-  }
-  .text-section h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  .text-section p {
-    font-size: 16px;
-  }
-  .glass-box {
-    width: 95%;
-    max-width: 400px;
-    padding: 25px;
-  }
-  .discount-card {
-    position: static;
-    width: 95%;
-    max-width: 400px;
-    margin: 20px auto;
-  }
+  .main-container { height: auto; display: flex !important; flex-direction: column !important; align-items: center !important; padding: 40px 20px !important; gap: 30px !important; position: static !important; }
+  .text-section { position: static !important; width: 100% !important; padding: 0 !important; text-align: center !important; }
+  .glass-box { position: static !important; transform: none !important; width: 100% !important; max-width: 450px !important; padding: 25px !important; }
+  .discount-card { position: static !important; width: 100% !important; max-width: 450px !important; }
+  
+  .data-table { min-width: 100%; font-size: 14px; }
 }
 
-/* ---------- Mobile portrait (≤480px) ---------- */
-@media (max-width: 480px) {
-
-  .navbar {
-    padding: 8px 10px;
-  }
-  .navbar-brand {
-    font-size: 16px;
-  }
-  .nav-link {
-    font-size: 14px;
-  }
-
-  /* Carousel */
-  .my-carousel {
-    width: 100%;
-  }
-  #carouselExampleAutoplaying,
-  #carouselExampleAutoplaying img {
-    max-height: 160px;
-    height: 160px;
-  }
-
-  /* Hero */
-  .hero-img {
-    height: 35vh;
-  }
-  .glass-card2 {
-    width: 95%;
-    font-size: 18px !important;
-    padding: 12px;
-    min-height: 80px;
-  }
-  .glass-card {
-    width: 92%;
-    padding: 10px;
-    font-size: 14px;
-  }
-  .demo {
-    width: 100px;
-    height: 42px;
-  }
-  .dbtt {
-    font-size: 13px;
-  }
-
-  /* About */
-  .a-img-box {
-    min-height: 150px;
-  }
-  .a-tex-box,
-  .a-tex-box2 {
-    width: 95%;
-    font-size: 22px;
-    padding: 25px;
-    margin-top: 20px;
-  }
-
-  /* Course2 */
-  .diss-tex-box {
-    font-size: 16px;
-    padding: 15px;
-    min-height: 200px;
-  }
-
-  /* Contact */
-  .con-box {
-    width: 95%;
-    padding: 15px;
-    min-height: 300px;
-  }
-  .con-name,
-  .con-email {
-    max-width: 240px;
-  }
-  .con-msg {
-    max-width: 240px;
-    height: 120px;
-  }
-
-  /* Course cards */
-  .card-img-top {
-    height: 180px;
-  }
-
-  /* Join */
-  .glass-box {
-    width: 98%;
-    padding: 20px;
-  }
-  .text-section h1 {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-  .discount-card {
-    width: 98%;
-    padding: 15px;
-    background-color: #31b71c; 
-  }
-}
-.text-start{
- display: block;
- font-size: 12px;
- margin-left: 0px;
-
-}
-.text-start1{
+/* ---------- Admin Dashboard Styling ---------- */
+.dashboard-bg {
+  min-height: calc(100vh - 70px);
+  width: 100% !important;
+  background: white !important;
+  padding: 40px 0;
+  margin: 0 !important;
   display: block;
-  position: static;
-  left: 20px;
-  
-  width: 100%;
-  height: 20px;
-  font-size: 12px;
 }
-.container {
-  margin-top: 80px; /* adjust based on navbar height */
-  
+.ad-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(98, 240, 33, 0.1);
+  padding: 30px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  height: 100%;
+  color: rgb(3, 3, 3);
 }
-.card-img-top {
-  object-fit: contain;
-
-}
-.card {
-  background-color: #e6fff2;
-  color: #004d26;
-  transition: 0.3s;
+.ad-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-.card:hover {
-  background-color: #31b71c;
-  color: white;
+/* ==============================================
+   TABLE STYLES
+   ============================================== */
+.table-container {
+  margin-top: 20px;
 }
-.data-table{
+
+.data-table {
   width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 18px;
-  font-family: sans-serif;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse; /* Important for clean borders */
+  font-family: Arial, sans-serif;
 }
-.data-table th,
-.data-table td {
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  text-align: center;
-}
-.data-table th {
-  background-color: #31b71c;
-  color: white;
-}
-.data-table tr:nth-child(even) {
+
+/* Table Header */
+.data-table thead {
   background-color: #f2f2f2;
 }
-.data-table tr:hover {
-  background-color: #ddd;
+
+.data-table th {
+  border: 1px solid #ccc;
+  background-color: #31b71c;
+  padding: 10px;
+  color: white;
+  text-align: center;
 }
+
+/* Table Body */
+.data-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Row Hover Effect */
+.data-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Optional: Zebra Striping */
+.data-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+.delete-btn {
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+.accept-btn {
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.accept-btn:hover {
+  background-color: darkgreen;
+} 
