@@ -16,24 +16,24 @@ function Adhome() {
         navigate("/coursesdata");
     }
     useEffect(() => {
-  fetch("http://localhost:3000/count")
-    .then(res => res.json())
-    .then(data => setCount(data.length));
-}, []);
- useEffect(() => {
-  fetch("http://localhost:3000/studentdata/student")
-    .then(res => res.json())
-    .then(data => setstudentscount(data.length));
-}, []);
-const students =()=>{
-    navigate("/studentdata");
-}
-const courses =()=>{
-    navigate("/coursesdata");
-}
-const joins =()=>{
-    navigate("/joinsdata");
-}
+        fetch("http://localhost:3000/count")
+            .then(res => res.json())
+            .then(data => setCount(data.length));
+    }, []);
+    useEffect(() => {
+        fetch("http://localhost:3000/studentdata/student")
+            .then(res => res.json())
+            .then(data => setstudentscount(data.length));
+    }, []);
+    const students = () => {
+        navigate("/studentdata");
+    }
+    const courses = () => {
+        navigate("/coursesdata");
+    }
+    const joins = () => {
+        navigate("/joinsdata");
+    }
     return (
         <div className="dashboard-bg">
             <div className="container">
@@ -55,7 +55,7 @@ const joins =()=>{
                     <div className="col-md-4" onClick={courses}>
                         <div className="ad-card d-flex flex-column align-items-center justify-content-center text-center p-4">
                             <div className="illustration-box mb-3">
-                                <img src="https://media.istockphoto.com/id/1396113348/vector/3d-web-vector-illustrations-online-concept-computer-with-open-pages-e-learning-design-over.jpg?s=612x612&w=0&k=20&c=UuGSBpij7N-sZLRU-akf97-k7EexWmKgv15EgeApRy0="  alt="Courses" style={{ width: "80px", height: "auto", opacity: "0.9" }} />
+                                <img src="https://media.istockphoto.com/id/1396113348/vector/3d-web-vector-illustrations-online-concept-computer-with-open-pages-e-learning-design-over.jpg?s=612x612&w=0&k=20&c=UuGSBpij7N-sZLRU-akf97-k7EexWmKgv15EgeApRy0=" alt="Courses" style={{ width: "80px", height: "auto", opacity: "0.9" }} />
                             </div>
                             <h3 className="fw-bold mb-1">{count}</h3>
                             <p className="text-muted small mb-0">Active Courses</p>

@@ -10,26 +10,37 @@ function Studentdata(){
         .then(res=>res.json())
         .then(res=>setData(res))
     },[])
- const handleDelete = (id) => {
-  const result = Swal.fire({
-    title:"Are you sure?",
-    text:"You want to delete this data",
-    icon:"warning",
-    showCancelButton:true,
-    confirmButtonText:"Yes, delete it!",
-    cancelButtonText:"No, cancel!",
-    reverseButtons:true
-  })
+const handleDelete = async (id) => {
+  const result = await Swal.fire({
+    title: "Are you sure?",
+    text: "You want to delete this data",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Yes, delete it!",
+    cancelButtonText: "No, cancel!",
+    reverseButtons: true
+  });
+
   if (result.isConfirmed) {
-    fetch(`http://localhost:3000/studentdata/student/${id}`, {
-        method: "DELETE"
-    })
-    .then(res => res.json())
+    axios.delete(`http://localhost:3000/studentdata/student/${id}`)
     .then(() => {
-        // ✅ UI update without refresh
-        setData(prev => prev.filter(item => item._id !== id));
-    });}
-}
+
+      // ✅ UI update without refresh
+      setData(prev => prev.filter(item => item._id !== id));
+
+      // ✅ success popup
+      Swal.fire({
+        icon: "success",
+        title: "Deleted!",
+        text: "Student deleted successfully 🚀",
+        timer: 1500,
+        showConfirmButton: false
+      });
+
+    })
+    .catch(err => console.log(err));
+  }
+};
 const handleAccept = async (id) => {
   try {
     await axios.post(`http://localhost:3000/customers/customers/${id}`, {

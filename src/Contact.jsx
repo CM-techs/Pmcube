@@ -6,6 +6,8 @@ function Contact() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [message, setMessage] = useState("")
+    const [rating, setRating] = useState(0)
+    const [hover, setHover] = useState(0)
     const [submit, setSubmit] = useState(false)
     const contact = async (e) => {
         setSubmit(true)
@@ -19,25 +21,29 @@ function Contact() {
             return;
         }
         try {
-            if (name.length < 3 || email.length < 3 || message.length < 10) {
-                swal.fire("Please fill all the fields");
+            if (name.length < 3 || email.length < 3 || message.length < 10 || rating === 0) {
+                swal.fire("Please fill all the fields and provide a rating");
                 return;
-            } else {
-                await axios.post("http://localhost:3000/contact/c", {
-                    name,
-                    email,
-                    message
-                });
-            }
-            if (name.length < 3 || email.length < 3 || message.length < 10) {
-                swal.fire("Please fill all the fields");
-                return;
-            } else {
-                swal.fire("Registered successfully");
             }
 
+            await axios.post("http://localhost:3000/contact/c", {
+                name,
+                email,
+                message,
+                rating
+            });
+
+            swal.fire("Feedback sent successfully");
+            
+            // Reset form
+            setName("")
+            setEmail("")
+            setMessage("")
+            setRating(0)
+            setSubmit(false)
+
         } catch (err) {
-            swal.fire(err.name, "Registration failed");
+            swal.fire(err.name, "Submission failed");
         }
     }
     return <>
@@ -59,6 +65,29 @@ function Contact() {
                 <div className="text-start1">{email.length < 3 && submit && <span className="text-start" style={{ color: "red" }}>Email must be at least 3 characters</span>}</div>
                 <textarea className="con-msg" placeholder="Message" value={message} onInput={(e) => setMessage(e.target.value)} />
                 <div className="text-start1">{message.length < 10 && submit && <span className="text-start" style={{ color: "red" }}>Message must be at least 10 characters</span>}</div>
+                
+                <div className="rating-container">
+                    <p className="rating-label">Rating:</p>
+                    <div className="star-rating">
+                        {[...Array(5)].map((star, index) => {
+                            index += 1;
+                            return (
+                                <button
+                                    type="button"
+                                    key={index}
+                                    className={index <= (hover || rating) ? "on" : "off"}
+                                    onClick={() => setRating(index)}
+                                    onMouseEnter={() => setHover(index)}
+                                    onMouseLeave={() => setHover(rating)}
+                                >
+                                    <span className="star">&#9733;</span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                    {rating === 0 && submit && <div className="text-start1"><span className="text-start" style={{ color: "red" }}>Please select a rating</span></div>}
+                </div>
+
                 <button className="con-btn" onClick={contact}  >Send Feedback</button>
             </div>
         </div>

@@ -21,20 +21,65 @@ function Coursesdata() {
             .catch(err => console.log(err));
     }, []);
     const Addcourse = async () => {
-  try {
-   
 
-    await axios.post(
-      "http://localhost:3000/addcourses/addcourses",
-      { Board, std, subject, img }
-    );
+  const result = await swal.fire({
+    title: "Are you sure?",
+    text: "Do you want to add this course?",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonText: "Yes, Add!",
+    cancelButtonText: "Cancel",
+    reverseButtons: true
+  });
 
-    // 🔥 refresh data
-    const res = await axios.get("http://localhost:3000/pmcourses/coursesdata");
-    setCourses(res.data);
-   
-  } catch (err) {
-    console.log(err);
+  if (result.isConfirmed) {
+
+    try {
+
+      // ✅ add course
+   await axios.post(
+  "http://localhost:3000/addcourses/addcourses",
+  {
+    board: Board,
+    std: std,
+    subject: subject,
+    img: img
+  }
+);
+
+      // ✅ refresh data
+      const res = await axios.get(
+        "http://localhost:3000/pmcourses/coursesdata"
+      );
+
+      setCourses(res.data);
+
+      // ✅ success popup
+      swal.fire({
+        icon: "success",
+        title: "Added!",
+        text: "Course added successfully 🚀",
+        timer: 1500,
+        showConfirmButton: false
+      });
+
+      // ✅ clear input fields
+      setBoard("");
+      setStd("");
+      setSubject("");
+      setImg("");
+
+    } catch (err) {
+
+      console.log(err);
+
+      swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong ❌"
+      });
+
+    }
   }
 };
 const handleDelete = (id) => {
@@ -62,10 +107,33 @@ const handleDelete = (id) => {
     <h1 className="text-center" style={{color:"#31b71c",marginTop:"20px"}}>Add Course</h1>
 <div className="d-flex gap-2 justify-content-center flex-wrap">
     
-    <input type="text" placeholder="Add Board" onChange={(e)=>setBoard(e.target.value)} />
-    <input type="text" placeholder="Add Standard" onChange={(e)=>setStd(e.target.value)} />
-    <input type="text" placeholder="Add Subject" onChange={(e)=>setSubject(e.target.value)} />
-    <input type="text" placeholder="Add Image" onChange={(e)=>setImg(e.target.value)} />
+    <input
+  type="text"
+  placeholder="Add Board"
+  value={Board}
+  onChange={(e) => setBoard(e.target.value)}
+/>
+
+<input
+  type="text"
+  placeholder="Add Standard"
+  value={std}
+  onChange={(e) => setStd(e.target.value)}
+/>
+
+<input
+  type="text"
+  placeholder="Add Subject"
+  value={subject}
+  onChange={(e) => setSubject(e.target.value)}
+/>
+
+<input
+  type="text"
+  placeholder="Add Image"
+  value={img}
+  onChange={(e) => setImg(e.target.value)}
+/>
     <button className="delete-btn" disabled={!Board || !std || !subject || !img} onClick={Addcourse}>Add</button>
     </div>
     <hr className="line-solid--px2"/>

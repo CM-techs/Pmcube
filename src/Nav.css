@@ -404,6 +404,48 @@ body{
   background-color: var(--text-dark);
   color: var(--white);
 }
+
+/* Rating Styles */
+.rating-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+.rating-label {
+  margin: 0;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 16px;
+}
+.star-rating {
+  display: flex;
+  gap: 5px;
+}
+.star-rating button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 30px;
+  transition: transform 0.2s;
+}
+.star-rating button:hover {
+  transform: scale(1.2);
+  border: none;
+}
+.star-rating button.on {
+  color: #ffc107;
+}
+.star-rating button.off {
+  color: #e4e5e9;
+}
+.star-rating button:focus {
+  outline: none;
+  border: none;
+}
 .con-head{
   text-align: left;
   margin-top: 0;
